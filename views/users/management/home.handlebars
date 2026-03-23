@@ -1,0 +1,54 @@
+<div class="container" style="margin-top: 30px;">
+    <h4 class="blue-grey-text text-darken-4" style="font-weight: bold;">Management Dashboard</h4>
+    <p>Logged in as: <b>System Admin</b></p>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col s12 m4">
+            <div class="card-panel center-align teal darken-1 white-text">
+                <i class="material-icons large">groups</i>
+                <h5>{{totalFaculty}}</h5>
+                <p>Registered Faculty</p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card-panel center-align indigo darken-2 white-text">
+                <i class="material-icons large">account_balance</i>
+                <h5>{{totalHods}}</h5>
+                <p>Total HODs</p>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card-panel center-align orange darken-3 white-text">
+                <i class="material-icons large">assignment_turned_in</i>
+                <h5>{{approvedCount}}</h5>
+                <p>Approved Appraisals</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card hoverable">
+                <div class="card-content">
+                    <span class="card-title">User Control</span>
+                    <p>Register new faculty/HOD accounts or view existing users.</p>
+                </div>
+                <div class="card-action">
+                    <a href="/users/management/registerUser" class="blue-text">REGISTER USER</a>
+                    <a href="/users/management/viewUsers" class="blue-text">VIEW ALL USERS</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card hoverable">
+                <div class="card-content">
+                    <span class="card-title">System Status</span>
+                    <p>Monitor the overall appraisal progress across all departments.</p>
+                </div>
+                <div class="card-action">
+                    <a href="/users/management/allReports" class="blue-text">VIEW REPORTS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
