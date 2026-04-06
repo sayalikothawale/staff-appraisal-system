@@ -5,6 +5,7 @@ const { ensureAuthenticated } = require('../helpers/auth');
 
 const Part3 = mongoose.model('part3');
 
+<<<<<<< HEAD
 // ✅ GET PART 3 PAGE
 router.get('/view/:year', ensureAuthenticated, async (req, res) => {
     try {
@@ -13,10 +14,20 @@ router.get('/view/:year', ensureAuthenticated, async (req, res) => {
         const existingData = await Part3.findOne({
             user: req.user.id,
             academicYear: selectedYear
+=======
+// GET Route
+router.get('/view/:year', ensureAuthenticated, async (req, res) => {
+    try {
+        const selectedYear = req.params.year;
+        const existingData = await Part3.findOne({ 
+            user: req.user.id, 
+            academicYear: selectedYear 
+>>>>>>> ae83c00fa38fdd9afd9db53d0bd2167ce0e02c63
         }).lean();
 
         res.render('parts/part3', {
             academicYear: selectedYear,
+<<<<<<< HEAD
 
             savedPublications: existingData ? existingData.publications : [],
             savedBooks: existingData ? existingData.books : [],
@@ -27,10 +38,16 @@ router.get('/view/:year', ensureAuthenticated, async (req, res) => {
 
     } catch (err) {
         console.error(err);
+=======
+            savedInnovation: existingData ? existingData.innovationEntries : []
+        });
+    } catch (err) {
+>>>>>>> ae83c00fa38fdd9afd9db53d0bd2167ce0e02c63
         res.redirect('/users/faculty/facultyOverview');
     }
 });
 
+<<<<<<< HEAD
 
 // ✅ SAVE PART 3
 router.post('/save', ensureAuthenticated, async (req, res) => {
@@ -115,6 +132,31 @@ router.post('/save', ensureAuthenticated, async (req, res) => {
     } catch (err) {
         console.error("Part3 Save Error:", err);
         req.flash('error_msg', 'Error saving Part 3');
+=======
+// POST Route
+router.post('/save', ensureAuthenticated, async (req, res) => {
+    try {
+        let { activity, organization, duration, points, enclosure, academicYear } = req.body;
+        const toArr = (val) => Array.isArray(val) ? val : [val];
+
+        const innovationData = toArr(activity).map((act, i) => ({
+            activity: act,
+            organization: toArr(organization)[i],
+            duration: toArr(duration)[i],
+            points: Number(toArr(points)[i]) || 0,
+            enclosure: toArr(enclosure)[i]
+        })).filter(item => item.activity && item.activity.trim() !== "");
+
+        await Part3.findOneAndUpdate(
+            { user: req.user.id, academicYear: academicYear },
+            { user: req.user.id, academicYear: academicYear, innovationEntries: innovationData },
+            { upsert: true, new: true }
+        );
+
+        req.flash('success_msg', 'Part 3 updated successfully!');
+        res.redirect('/users/faculty/facultyOverview');
+    } catch (err) {
+>>>>>>> ae83c00fa38fdd9afd9db53d0bd2167ce0e02c63
         res.redirect('/users/faculty/facultyOverview');
     }
 });

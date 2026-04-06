@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Part3Schema = new Schema({
+<<<<<<< HEAD
 
     user: { type: Schema.Types.ObjectId, ref: 'users', required: true },
     academicYear: { type: String, required: true },
@@ -62,3 +63,18 @@ const Part3Schema = new Schema({
 });
 
 module.exports = mongoose.model('part3', Part3Schema);
+=======
+    user: { type: Schema.Types.ObjectId, ref: 'users', required: true },
+    academicYear: { type: String, required: true },
+    innovationEntries: [{
+        activity: { type: String, required: true }, // e.g., Consultancy, Patent, Guest Lecture
+        organization: { type: String },
+        duration: { type: String },
+        points: { type: Number, default: 0 },
+        enclosure: { type: String }
+    }],
+    date: { type: Date, default: Date.now }
+});
+
+mongoose.model('part3', Part3Schema);
+>>>>>>> ae83c00fa38fdd9afd9db53d0bd2167ce0e02c63
