@@ -1,0 +1,279 @@
+<div class="container" style="margin-top:30px; margin-bottom:50px;">
+<div class="card">
+<div class="card-content">
+
+<h4 class="center-align blue-text">
+PART – I : AICTE 360 Degree Feedback
+</h4>
+<input type="hidden" name="academicYear" value="{{academicYear}}">
+<p class="center-align"><b>Academic Year: {{year}}</b></p>
+
+
+<form action="/part1/save" method="POST">
+
+<!-- ================= TEACHING ================= -->
+<h5><b>1. Teaching Process</b></h5>
+
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Semester</th>
+<th>Course</th>
+<th>(T/L/P)</th>
+<th>Scheduled</th>
+<th>Held</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="teaching">
+
+<!-- Example Row -->
+<tr style="color:gray;">
+<td>-</td>
+<td>Sem-I</td>
+<td>System Programming</td>
+<td>(L)</td>
+<td>45</td>
+<td>40</td>
+<td>Example</td>
+</tr>
+
+<!-- Input Row -->
+<tr>
+<td>1</td>
+<td><input name="sem[]"></td>
+<td><input name="course[]"></td>
+<td><input name="type[]"></td>
+<td><input name="scheduled[]"></td>
+<td><input name="held[]"></td>
+<td><a href="#" class="remove red-text">X</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRow('teaching','teach')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= FEEDBACK ================= -->
+<h5><b>2. Students Feedback</b></h5>
+
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Semester</th>
+<th>Course</th>
+<th>Feedback (out of 25)</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="feedback">
+
+<tr style="color:gray;">
+<td>-</td>
+<td>I</td>
+<td>System Programming</td>
+<td>19.63</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td><input name="fsem[]"></td>
+<td><input name="fcourse[]"></td>
+<td><input name="feedbackMarks[]"></td>
+<td><a href="#" class="remove red-text">X</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRow('feedback','feedback')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= DEPARTMENT ================= -->
+<h5><b>3. Departmental Activities</b></h5>
+
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Semester</th>
+<th>Activity</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="dept">
+
+<tr style="color:gray;">
+<td>-</td>
+<td>I & II</td>
+<td>Faculty In-Charge for Coding Club</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td><input name="dsem[]"></td>
+<td><input name="dactivity[]"></td>
+<td><a href="#" class="remove red-text">X</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRow('dept','dept')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= INSTITUTE ================= -->
+<h5><b>4. Institute Activities</b></h5>
+
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Semester</th>
+<th>Activity</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="inst">
+
+<tr style="color:gray;">
+<td>-</td>
+<td>I & II</td>
+<td>ERP System In-charge</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td><input name="isem[]"></td>
+<td><input name="iactivity[]"></td>
+<td><a href="#" class="remove red-text">X</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRow('inst','inst')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= SOCIETY ================= -->
+<h5><b>5. Contribution to Society</b></h5>
+
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr.No</th>
+<th>Semester</th>
+<th>Activity</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody id="soc">
+
+<tr style="color:gray;">
+<td>-</td>
+<td>I</td>
+<td>Blood Donation</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td><input name="ssem[]"></td>
+<td><input name="sactivity[]"></td>
+<td><a href="#" class="remove red-text">X</a></td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRow('soc','soc')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= ACR ================= -->
+<h5><b>6. ACR</b></h5>
+
+<select name="acr" class="browser-default">
+<option value="">Select ACR</option>
+<option>Extraordinary</option>
+<option>Excellent</option>
+<option>Very Good</option>
+<option>Good</option>
+<option>Satisfactory</option>
+</select>
+
+<br><br><br>
+
+<div class="center-align">
+<button type="submit" class="btn-large green">
+Save & Continue →
+</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+
+<script>
+function updateSerial(id){
+let rows=document.querySelectorAll(`#${id} tr`);
+let count=1;
+rows.forEach(r=>{
+if(r.style.color!=="gray"){
+r.cells[0].innerText=count++;
+}
+});
+}
+
+function addRow(id,type){
+let row='';
+
+if(type==='teach'){
+row=`<tr><td></td><td><input name="sem[]"></td><td><input name="course[]"></td><td><input name="type[]"></td><td><input name="scheduled[]"></td><td><input name="held[]"></td><td><a href="#" class="remove red-text">X</a></td></tr>`;
+}
+
+if(type==='feedback'){
+row=`<tr><td></td><td><input name="fsem[]"></td><td><input name="fcourse[]"></td><td><input name="feedbackMarks[]"></td><td><a href="#" class="remove red-text">X</a></td></tr>`;
+}
+
+if(type==='dept'){
+row=`<tr><td></td><td><input name="dsem[]"></td><td><input name="dactivity[]"></td><td><a href="#" class="remove red-text">X</a></td></tr>`;
+}
+
+if(type==='inst'){
+row=`<tr><td></td><td><input name="isem[]"></td><td><input name="iactivity[]"></td><td><a href="#" class="remove red-text">X</a></td></tr>`;
+}
+
+if(type==='soc'){
+row=`<tr><td></td><td><input name="ssem[]"></td><td><input name="sactivity[]"></td><td><a href="#" class="remove red-text">X</a></td></tr>`;
+}
+
+document.getElementById(id).insertAdjacentHTML('beforeend',row);
+updateSerial(id);
+}
+
+document.addEventListener('click',function(e){
+if(e.target.classList.contains('remove')){
+e.target.closest('tr').remove();
+['teaching','feedback','dept','inst','soc'].forEach(updateSerial);
+}
+});
+
+['teaching','feedback','dept','inst','soc'].forEach(updateSerial);
+</script>

@@ -1,0 +1,183 @@
+<div class="container" style="margin-top:30px; margin-bottom:50px;">
+<div class="card">
+<div class="card-content">
+
+<h4 class="center-align blue-text">
+PART – III : Research, Publications & Academic Contributions
+</h4>
+
+<p class="center-align"><b>Academic Year: {{year}}</b></p>
+
+<form action="/part3/save" method="POST">
+
+<!-- ================= A ================= -->
+<h5><b>A. Publications</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Title</th><th>Journal</th><th>ISSN</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="A">
+<tr style="color:gray;"><td>-</td><td>AI Paper</td><td>IEEE</td><td>1234</td><td>2024</td><td>Proof</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Atitle[]"></td><td><input name="Ajournal[]"></td><td><input name="Aissn[]"></td><td><input name="Ayear[]"></td><td><input name="Aenc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('A')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= B ================= -->
+<h5><b>B. Books / Chapters</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Title</th><th>Publisher</th><th>ISBN</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="B">
+<tr style="color:gray;"><td>-</td><td>DS Book</td><td>Springer</td><td>1111</td><td>2023</td><td>Proof</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Btitle[]"></td><td><input name="Bpub[]"></td><td><input name="Bisbn[]"></td><td><input name="Byear[]"></td><td><input name="Benc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('B')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= C ================= -->
+<h5><b>C. Research Projects / Grants</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Title</th><th>Agency</th><th>Amount</th><th>Duration</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="C">
+<tr style="color:gray;"><td>-</td><td>IoT Project</td><td>AICTE</td><td>2L</td><td>1 Year</td><td>Letter</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Ctitle[]"></td><td><input name="Cagency[]"></td><td><input name="Camt[]"></td><td><input name="Cdur[]"></td><td><input name="Cenc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('C')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= D ================= -->
+<h5><b>D. FDP / STTP / Workshops</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Activity</th><th>Organization</th><th>Duration</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="D">
+<tr style="color:gray;"><td>-</td><td>FDP AI</td><td>IIT</td><td>5 Days</td><td>Cert</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Dact[]"></td><td><input name="Dorg[]"></td><td><input name="Ddur[]"></td><td><input name="Denc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('D')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= E ================= -->
+<h5><b>E. Patents / IPR</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Title</th><th>Status</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="E">
+<tr style="color:gray;"><td>-</td><td>Smart System</td><td>Filed</td><td>2024</td><td>Proof</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Etitle[]"></td><td><input name="Estatus[]"></td><td><input name="Eyear[]"></td><td><input name="Eenc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('E')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= F ================= -->
+<h5><b>F. Awards / Recognition</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Award</th><th>Organization</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="F">
+<tr style="color:gray;"><td>-</td><td>Best Teacher</td><td>Institute</td><td>2023</td><td>Proof</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Faward[]"></td><td><input name="Forg[]"></td><td><input name="Fyear[]"></td><td><input name="Fenc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('F')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= G(i) ================= -->
+<h5><b>G(i). Membership of Professional Bodies</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Body Name</th><th>Membership No</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="G1">
+<tr style="color:gray;"><td>-</td><td>ISTE</td><td>12345</td><td>2022</td><td>ID Card</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Gbody[]"></td><td><input name="Gno[]"></td><td><input name="Gyear[]"></td><td><input name="Genc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('G1')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<!-- ================= G(ii) ================= -->
+<h5><b>G(ii). Any Other Contribution</b></h5>
+<table class="striped bordered centered">
+<thead>
+<tr>
+<th>Sr</th><th>Description</th><th>Year</th><th>Enclosure</th><th></th>
+</tr>
+</thead>
+<tbody id="G2">
+<tr style="color:gray;"><td>-</td><td>Community Service</td><td>2024</td><td>Proof</td><td>Example</td></tr>
+<tr><td>1</td><td><input name="Gdesc[]"></td><td><input name="G2year[]"></td><td><input name="G2enc[]"></td><td><a class="remove">X</a></td></tr>
+</tbody>
+</table>
+<button type="button" onclick="addRow('G2')" class="btn blue">+ Add</button>
+
+<br><br>
+
+<div class="center-align">
+<button type="submit" class="btn-large green">Save & Continue →</button>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+
+<script>
+function updateSerial(id){
+let rows=document.querySelectorAll(`#${id} tr`);
+let count=1;
+rows.forEach(r=>{
+if(r.style.color!=="gray"){
+r.cells[0].innerText=count++;
+}
+});
+}
+
+function addRow(id){
+let row=`<tr>${document.querySelector(`#${id} tr:nth-child(2)`).innerHTML}</tr>`;
+document.getElementById(id).insertAdjacentHTML('beforeend',row);
+updateSerial(id);
+}
+
+document.addEventListener('click',function(e){
+if(e.target.classList.contains('remove')){
+e.target.closest('tr').remove();
+['A','B','C','D','E','F','G1','G2'].forEach(updateSerial);
+}
+});
+
+['A','B','C','D','E','F','G1','G2'].forEach(updateSerial);
+</script>

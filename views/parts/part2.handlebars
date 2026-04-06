@@ -1,0 +1,151 @@
+<div class="container" style="margin-top: 30px; margin-bottom: 50px;">
+    <div class="card white" style="border-top: 5px solid #003366; border-radius: 8px;">
+        <div class="card-content">
+
+            <h4 class="center-align" style="color: #003366; font-weight: bold;">
+                Part II: Trainings Undergone
+            </h4>
+
+            <!-- ✅ SINGLE FORM -->
+            <form action="/part2/save" method="POST">
+
+                <input type="hidden" name="academicYear" value="{{academicYear}}">
+
+                <!-- 🔵 A. FDP -->
+                <h5 style="color:#003366;">A. Faculty Development Programs (FDP)</h5>
+                <table class="highlight centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Organized By</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Weeks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fdpTable">
+                        <tr>
+                            <td><input type="text" name="fdpTitle[]"></td>
+                            <td><input type="text" name="fdpOrg[]"></td>
+                            <td><input type="date" name="fdpFrom[]"></td>
+                            <td><input type="date" name="fdpTo[]"></td>
+                            <td><input type="text" name="fdpWeeks[]"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" onclick="addFdpRow()" class="btn green">+ Add FDP</button>
+
+                <br><br>
+
+                <!-- 🔵 B. MOOC (OPTIONAL) -->
+                <h5 style="color:#003366;">B. MOOC Courses (Optional)</h5>
+                <table class="highlight centered">
+                    <thead>
+                        <tr>
+                            <th>Course Title</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Weeks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="moocTable">
+                        <tr>
+                            <td><input type="text" name="moocTitle[]"></td>
+                            <td><input type="date" name="moocFrom[]"></td>
+                            <td><input type="date" name="moocTo[]"></td>
+                            <td><input type="text" name="moocWeeks[]"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" onclick="addMoocRow()" class="btn green">+ Add MOOC</button>
+
+                <br><br>
+
+                <!-- 🔵 C. TRAINING (OPTIONAL) -->
+                <h5 style="color:#003366;">C. Industrial Training (Optional)</h5>
+                <table class="highlight centered">
+                    <thead>
+                        <tr>
+                            <th>Institute</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Weeks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainingTable">
+                        <tr>
+                            <td><input type="text" name="trainInst[]"></td>
+                            <td><input type="date" name="trainFrom[]"></td>
+                            <td><input type="date" name="trainTo[]"></td>
+                            <td><input type="text" name="trainWeeks[]"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" onclick="addTrainingRow()" class="btn green">+ Add Training</button>
+
+                <br><br><br>
+
+                <!-- ✅ ACTION BUTTONS -->
+                <div class="center-align">
+
+                    <!-- SKIP BUTTON -->
+                    <a href="/part3/view/{{academicYear}}" class="btn grey">
+                        Skip
+                    </a>
+
+                    <!-- SAVE & NEXT -->
+                    <button type="submit" class="btn blue darken-4">
+                        Save & Next →
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ✅ SCRIPT FOR ADD ROW -->
+<script>
+
+function addFdpRow() {
+    const table = document.getElementById('fdpTable');
+    const row = `
+        <tr>
+            <td><input type="text" name="fdpTitle[]"></td>
+            <td><input type="text" name="fdpOrg[]"></td>
+            <td><input type="date" name="fdpFrom[]"></td>
+            <td><input type="date" name="fdpTo[]"></td>
+            <td><input type="text" name="fdpWeeks[]"></td>
+        </tr>`;
+    table.innerHTML += row;
+}
+
+function addMoocRow() {
+    const table = document.getElementById('moocTable');
+    const row = `
+        <tr>
+            <td><input type="text" name="moocTitle[]"></td>
+            <td><input type="date" name="moocFrom[]"></td>
+            <td><input type="date" name="moocTo[]"></td>
+            <td><input type="text" name="moocWeeks[]"></td>
+        </tr>`;
+    table.innerHTML += row;
+}
+
+function addTrainingRow() {
+    const table = document.getElementById('trainingTable');
+    const row = `
+        <tr>
+            <td><input type="text" name="trainInst[]"></td>
+            <td><input type="date" name="trainFrom[]"></td>
+            <td><input type="date" name="trainTo[]"></td>
+            <td><input type="text" name="trainWeeks[]"></td>
+        </tr>`;
+    table.innerHTML += row;
+}
+
+</script>

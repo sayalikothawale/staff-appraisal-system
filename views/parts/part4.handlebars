@@ -1,0 +1,214 @@
+<div class="container" style="margin-top:30px; max-width:900px;">
+
+<div class="card" style="padding:25px; border-radius:10px;">
+
+<form action="/part4/save" method="POST">
+
+<h5 style="color:#0d47a1; font-weight:bold;">PART IV: Innovative Teaching & E-Learning</h5>
+
+<!-- ================= A ================= -->
+<h6><b>A. Innovative Teaching Methods</b></h6>
+
+<table class="striped bordered" id="tableA">
+<thead style="background:#1976d2; color:white;">
+<tr>
+<th>Course</th>
+<th>Methodology</th>
+<th>Remark</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="color:gray;">
+<td>Operating System</td>
+<td>Use of Google Classroom</td>
+<td>-</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td><input name="course[]"></td>
+<td><input name="methodology[]"></td>
+<td><input name="remarkA[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRowA()" class="btn blue" style="margin-top:10px;">+ Add</button>
+
+<!-- ================= B ================= -->
+<h6 style="margin-top:25px;"><b>B. E-learning Material</b></h6>
+
+<table class="striped bordered" id="tableB">
+<thead style="background:#1976d2; color:white;">
+<tr>
+<th>Details</th>
+<th>Remark</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="color:gray;">
+<td>Created PPT & Videos</td>
+<td>-</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td><input name="elearning[]"></td>
+<td><input name="remarkB[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRowB()" class="btn blue" style="margin-top:10px;">+ Add</button>
+
+<!-- ================= PART V ================= -->
+<h5 style="color:#0d47a1; margin-top:30px;"><b>PART V: Other Relevant Information</b></h5>
+
+<table class="striped bordered" id="tableV">
+<thead style="background:#1976d2; color:white;">
+<tr>
+<th>Details</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr style="color:gray;">
+<td>Best Teacher Award 2023</td>
+<td>Example</td>
+</tr>
+
+<tr>
+<td><input name="otherInfo[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>
+
+</tbody>
+</table>
+
+<button type="button" onclick="addRowV()" class="btn blue" style="margin-top:10px;">+ Add</button>
+
+<!-- ================= ENCLOSURE ================= -->
+<h6 style="margin-top:25px;"><b>Enclosure</b></h6>
+
+<p style="color:gray;">Example: Certificate, Award Letter</p>
+
+<div id="enclosureDiv">
+<input type="text" name="enclosure[]" placeholder="Enter enclosure">
+</div>
+
+<button type="button" onclick="addEnclosure()" class="btn blue" style="margin-top:10px;">+ Add Enclosure</button>
+
+<!-- ================= DECLARATION ================= -->
+<h6 style="margin-top:25px;"><b>Declaration</b></h6>
+
+<p>
+<label>
+<input type="checkbox" required>
+<span>I declare that the information provided is true.</span>
+</label>
+</p>
+
+<!-- ================= SIGNATURE ================= -->
+<div class="row" style="margin-top:30px;">
+
+<div class="col s12">
+<label>Name of Teacher</label>
+<input type="text" name="teacherName">
+
+<label>Department</label>
+<input type="text" name="department">
+
+<label>Date</label>
+<input type="date" name="date">
+</div>
+
+</div>
+
+<!-- ================= BUTTON ================= -->
+<div class="center-align" style="margin-top:30px;">
+<button type="submit" class="btn blue">
+Save & Next →
+</button>
+</div>
+
+</form>
+</div>
+</div>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function addRowA(){
+let row = `
+<tr>
+<td><input name="course[]"></td>
+<td><input name="methodology[]"></td>
+<td><input name="remarkA[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>`;
+document.querySelector("#tableA tbody").insertAdjacentHTML('beforeend', row);
+}
+
+function addRowB(){
+let row = `
+<tr>
+<td><input name="elearning[]"></td>
+<td><input name="remarkB[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>`;
+document.querySelector("#tableB tbody").insertAdjacentHTML('beforeend', row);
+}
+
+function addRowV(){
+let row = `
+<tr>
+<td><input name="otherInfo[]"></td>
+<td>
+<button type="button" class="btn red" onclick="removeRow(this)">
+<i class="material-icons">delete</i>
+</button>
+</td>
+</tr>`;
+document.querySelector("#tableV tbody").insertAdjacentHTML('beforeend', row);
+}
+
+function addEnclosure(){
+let field = `<input type="text" name="enclosure[]" style="margin-top:5px;">`;
+document.getElementById("enclosureDiv").insertAdjacentHTML('beforeend', field);
+}
+
+function removeRow(btn){
+btn.closest('tr').remove();
+}
+</script>

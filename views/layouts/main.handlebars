@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WIT PBAS Portal</title> <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* WIT Navy Blue Theme Injection */
+        :root {
+            --wit-navy: #003366;
+            --wit-red: #cc3333;
+        }
+        
+        /* Navbar Styling */
+        nav, .page-footer {
+            background-color: var(--wit-navy) !important;
+        }
+
+        .input-field label, .input-field input {
+            color: black !important;
+        }
+
+        /* Override Purple Buttons to WIT Navy */
+        .btn, .btn-large, button {
+            background-color: var(--wit-navy) !important;
+        }
+
+        .btn:hover {
+            background-color: var(--wit-red) !important;
+        }
+
+        footer {
+            display: flex;
+            min-height: 41vh;
+            flex-direction: column;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            background-color: #f5f5f5;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        /* Tab highlights */
+        .tabs .indicator {
+            background-color: var(--wit-red);
+        }
+        .tabs .tab a:hover, .tabs .tab a.active {
+            color: var(--wit-navy) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header>{{> _navbar}}</header>
+    <main>
+        <div class="container">
+            {{> _msg}}
+            {{> _errors}}
+            {{{body}}}
+            <br>
+        </div>
+    </main>
+    <footer class="page-footer">{{> _footer}}</footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('.collapsible').collapsible();
+            $('.tabs').tabs();
+            $('select').formSelect();
+            $(".dropdown-trigger").dropdown({ constrainWidth: false, coverTrigger: false, hover: true });
+            $('.datepicker').datepicker({ format: 'dd/mm/yyyy' });
+        });
+        
+        /* Removed purple class addition to buttons */
+        $('button').css('background-color', '#003366');
+    </script>
+</body>
+</html>
